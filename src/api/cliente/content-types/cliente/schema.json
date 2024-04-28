@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clientes",
+  "info": {
+    "singularName": "cliente",
+    "pluralName": "clientes",
+    "displayName": "Cliente",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Telefone": {
+      "type": "integer",
+      "required": true
+    },
+    "Endereco": {
+      "type": "string",
+      "required": true
+    },
+    "Cpf": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "Cod_cli": {
+      "type": "integer",
+      "unique": true,
+      "required": true
+    },
+    "pedidos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pedido.pedido",
+      "mappedBy": "cod_cli"
+    }
+  }
+}

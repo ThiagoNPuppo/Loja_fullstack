@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vendas",
+  "info": {
+    "singularName": "venda",
+    "pluralName": "vendas",
+    "displayName": "Venda",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Data_venda": {
+      "type": "date",
+      "required": true
+    },
+    "Cod_cli": {
+      "type": "integer",
+      "required": true
+    },
+    "Valor_tot": {
+      "type": "integer",
+      "required": true
+    },
+    "Cod_ped": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pedido.pedido",
+      "inversedBy": "Venda"
+    }
+  }
+}
