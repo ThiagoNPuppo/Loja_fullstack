@@ -802,7 +802,7 @@ export interface ApiClienteCliente extends Schema.CollectionType {
   attributes: {
     Nome: Attribute.String & Attribute.Required;
     Email: Attribute.Email;
-    Telefone: Attribute.Integer & Attribute.Required;
+    Telefone: Attribute.BigInteger & Attribute.Required;
     Endereco: Attribute.String & Attribute.Required;
     Cpf: Attribute.BigInteger & Attribute.Required & Attribute.Unique;
     Cod_cli: Attribute.Integer & Attribute.Required & Attribute.Unique;

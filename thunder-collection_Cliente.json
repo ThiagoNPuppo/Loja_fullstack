@@ -1,0 +1,69 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Cliente",
+    "collectionId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
+    "dateExported": "2024-06-16T16:03:01.859Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "29cd161b-6332-4fdd-b606-0f483dd52e9e",
+            "colId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
+            "containerId": "",
+            "name": "get",
+            "url": "http://localhost:1337/api/clientes",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-04-28T14:15:40.767Z",
+            "modified": "2024-06-16T14:48:46.900Z",
+            "headers": []
+        },
+        {
+            "_id": "65a516d6-8edb-48c8-abbc-6479b33d7117",
+            "colId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
+            "containerId": "",
+            "name": "post",
+            "url": "http://localhost:1337/api/clientes",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-06-16T14:43:31.251Z",
+            "modified": "2024-06-16T14:51:40.215Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"data\":{\n    \"Nome\": \"deletar\",\n    \"Email\": \"alice@gmail.com\",\n    \"Telefone\": \"5199999999\",\n    \"Endereco\": \"Rua Jamelão 75\",\n    \"Cpf\": \"020202020\",\n    \"Cod_cli\": \"28\"\n    }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "2497f9d2-2afc-4628-b6a1-2fb782a2ceae",
+            "colId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
+            "containerId": "",
+            "name": "delete",
+            "url": "http://localhost:1337/api/clientes/7",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-06-16T14:51:12.944Z",
+            "modified": "2024-06-16T14:52:34.956Z",
+            "headers": []
+        },
+        {
+            "_id": "d1ced6e7-9d9b-440a-947b-791d13769d9f",
+            "colId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
+            "containerId": "",
+            "name": "put",
+            "url": "http://localhost:1337/api/clientes/8",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-06-16T14:53:00.459Z",
+            "modified": "2024-06-16T14:53:57.809Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"data\":{\n    \"Nome\": \"deletar.fel\",\n    \"Email\": \"alice.puppo@gmail.com\",\n    \"Telefone\": \"5199999988\",\n    \"Endereco\": \"Rua Jamelão 75\",\n    \"Cpf\": \"020202020\",\n    \"Cod_cli\": \"28\"\n    }\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "U2ugAJRu7ld3wgkFNz7PetJYTQzl_nqpBTF2u0kwed3VWgWP7540CLtslCbKHx0iU2N71OLEqNV2nGcnHgSYIQ"
+}

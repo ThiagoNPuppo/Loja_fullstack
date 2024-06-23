@@ -20,7 +20,7 @@
       "type": "email"
     },
     "Telefone": {
-      "type": "integer",
+      "type": "biginteger",
       "required": true
     },
     "Endereco": {

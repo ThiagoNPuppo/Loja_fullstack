@@ -1,0 +1,23 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Pedido",
+    "collectionId": "8465021f-090f-4361-a3ff-49360ade168a",
+    "dateExported": "2024-06-16T16:03:17.931Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9fd565da-d6a0-4e11-80e8-a44eb7865906",
+            "colId": "8465021f-090f-4361-a3ff-49360ade168a",
+            "containerId": "",
+            "name": "get",
+            "url": "http://localhost:1337/api/pedidos",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-16T14:31:53.233Z",
+            "modified": "2024-06-16T14:32:11.692Z",
+            "headers": []
+        }
+    ],
+    "ref": "URyMm8HQkPx8DKQs-aGHAJ09CgU8tasn1gqzQblFjFBSVdZS7pW_C5kpAOQ7ysVPrXGWNW5kqr2ABQyDuXGVmg"
+}

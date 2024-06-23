@@ -1,0 +1,28 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Produto",
+    "collectionId": "257a62f3-ff57-4a6c-a8c6-449f1d43c8ad",
+    "dateExported": "2024-06-16T16:03:22.155Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "af368f08-4d8c-4f8c-8b6c-4de7271ecb75",
+            "colId": "257a62f3-ff57-4a6c-a8c6-449f1d43c8ad",
+            "containerId": "",
+            "name": "get",
+            "url": "http://localhost:1337/api/produtos",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-16T14:33:49.251Z",
+            "modified": "2024-06-16T14:35:04.286Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"data\":{\n    \"Nome\": \"jaqueta infantil\",\n    \"Preco\": 59.9,\n    \"Qtd_estoque\": 4,\n    \"Categoria\": \"vestuario\",\n    \"Cod_prod\": 3\n  }\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "N0xBtR_TneWU1vjXKo-7fg99aifqdAuOF8Q3wPhALDYAejXLq5fz8yVUkcwq0Cjq0UpyGXcFZ4LfWMStfjZLmQ"
+}
