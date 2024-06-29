@@ -41,6 +41,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::pedido.pedido",
+      "mappedBy": "cod_ped"
+    },
+    "cod_cli": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pedido.pedido",
       "mappedBy": "cod_cli"
     }
   }

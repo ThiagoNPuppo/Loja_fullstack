@@ -811,6 +811,11 @@ export interface ApiClienteCliente extends Schema.CollectionType {
       'oneToMany',
       'api::pedido.pedido'
     >;
+    cod_cli: Attribute.Relation<
+      'api::cliente.cliente',
+      'oneToMany',
+      'api::pedido.pedido'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -841,22 +846,22 @@ export interface ApiPedidoPedido extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Data_ped: Attribute.Date;
-    Num_ped: Attribute.Integer & Attribute.Required;
-    cod_cli: Attribute.Relation<
+    data_ped: Attribute.Date;
+    valor: Attribute.Decimal;
+    produtos: Attribute.Relation<
+      'api::pedido.pedido',
+      'oneToMany',
+      'api::produto.produto'
+    >;
+    cod_ped: Attribute.Relation<
       'api::pedido.pedido',
       'manyToOne',
       'api::cliente.cliente'
     >;
-    Venda: Attribute.Relation<
+    cod_cli: Attribute.Relation<
       'api::pedido.pedido',
-      'oneToOne',
-      'api::venda.venda'
-    >;
-    cod_prods: Attribute.Relation<
-      'api::pedido.pedido',
-      'oneToMany',
-      'api::produto.produto'
+      'manyToOne',
+      'api::cliente.cliente'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -916,44 +921,6 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
   };
 }
 
-export interface ApiVendaVenda extends Schema.CollectionType {
-  collectionName: 'vendas';
-  info: {
-    singularName: 'venda';
-    pluralName: 'vendas';
-    displayName: 'Venda';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Data_venda: Attribute.Date & Attribute.Required;
-    Cod_cli: Attribute.Integer & Attribute.Required;
-    Valor_tot: Attribute.Integer & Attribute.Required;
-    Cod_ped: Attribute.Relation<
-      'api::venda.venda',
-      'oneToOne',
-      'api::pedido.pedido'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::venda.venda',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::venda.venda',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -975,7 +942,6 @@ declare module '@strapi/types' {
       'api::cliente.cliente': ApiClienteCliente;
       'api::pedido.pedido': ApiPedidoPedido;
       'api::produto.produto': ApiProdutoProduto;
-      'api::venda.venda': ApiVendaVenda;
     }
   }
 }

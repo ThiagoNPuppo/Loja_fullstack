@@ -12,30 +12,29 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Data_ped": {
+    "data_ped": {
       "type": "date"
     },
-    "Num_ped": {
-      "type": "integer",
-      "required": true
+    "valor": {
+      "type": "decimal"
     },
-    "cod_cli": {
+    "produtos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::produto.produto",
+      "mappedBy": "pedido"
+    },
+    "cod_ped": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::cliente.cliente",
       "inversedBy": "pedidos"
     },
-    "Venda": {
+    "cod_cli": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::venda.venda",
-      "mappedBy": "Cod_ped"
-    },
-    "cod_prods": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::produto.produto",
-      "mappedBy": "pedido"
+      "relation": "manyToOne",
+      "target": "api::cliente.cliente",
+      "inversedBy": "cod_cli"
     }
   }
 }
