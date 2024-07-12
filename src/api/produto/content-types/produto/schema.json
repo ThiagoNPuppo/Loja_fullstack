@@ -23,13 +23,8 @@
     "Qtd_estoque": {
       "type": "integer"
     },
-    "Categoria": {
+    "Descricao": {
       "type": "string"
-    },
-    "Cod_prod": {
-      "type": "integer",
-      "required": true,
-      "unique": true
     },
     "pedido": {
       "type": "relation",

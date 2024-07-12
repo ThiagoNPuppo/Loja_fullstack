@@ -32,22 +32,11 @@
       "required": true,
       "unique": true
     },
-    "Cod_cli": {
-      "type": "integer",
-      "unique": true,
-      "required": true
-    },
     "pedidos": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::pedido.pedido",
-      "mappedBy": "cod_ped"
-    },
-    "cod_cli": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::pedido.pedido",
-      "mappedBy": "cod_cli"
+      "mappedBy": "cliente"
     }
   }
 }

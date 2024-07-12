@@ -24,17 +24,11 @@
       "target": "api::produto.produto",
       "mappedBy": "pedido"
     },
-    "cod_ped": {
+    "cliente": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToOne",
       "target": "api::cliente.cliente",
       "inversedBy": "pedidos"
-    },
-    "cod_cli": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::cliente.cliente",
-      "inversedBy": "cod_cli"
     }
   }
 }

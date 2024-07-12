@@ -805,15 +805,9 @@ export interface ApiClienteCliente extends Schema.CollectionType {
     Telefone: Attribute.BigInteger & Attribute.Required;
     Endereco: Attribute.String & Attribute.Required;
     Cpf: Attribute.BigInteger & Attribute.Required & Attribute.Unique;
-    Cod_cli: Attribute.Integer & Attribute.Required & Attribute.Unique;
     pedidos: Attribute.Relation<
       'api::cliente.cliente',
-      'oneToMany',
-      'api::pedido.pedido'
-    >;
-    cod_cli: Attribute.Relation<
-      'api::cliente.cliente',
-      'oneToMany',
+      'oneToOne',
       'api::pedido.pedido'
     >;
     createdAt: Attribute.DateTime;
@@ -853,14 +847,9 @@ export interface ApiPedidoPedido extends Schema.CollectionType {
       'oneToMany',
       'api::produto.produto'
     >;
-    cod_ped: Attribute.Relation<
+    cliente: Attribute.Relation<
       'api::pedido.pedido',
-      'manyToOne',
-      'api::cliente.cliente'
-    >;
-    cod_cli: Attribute.Relation<
-      'api::pedido.pedido',
-      'manyToOne',
+      'oneToOne',
       'api::cliente.cliente'
     >;
     createdAt: Attribute.DateTime;
@@ -896,8 +885,7 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
     Nome: Attribute.String & Attribute.Required;
     Preco: Attribute.Decimal & Attribute.Required;
     Qtd_estoque: Attribute.Integer;
-    Categoria: Attribute.String;
-    Cod_prod: Attribute.Integer & Attribute.Required & Attribute.Unique;
+    Descricao: Attribute.String;
     pedido: Attribute.Relation<
       'api::produto.produto',
       'manyToOne',
