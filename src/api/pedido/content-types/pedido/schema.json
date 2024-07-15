@@ -29,6 +29,14 @@
       "relation": "oneToOne",
       "target": "api::cliente.cliente",
       "inversedBy": "pedidos"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pago",
+        "aguardando pagamento",
+        "finalizado"
+      ]
     }
   }
 }

@@ -852,6 +852,9 @@ export interface ApiPedidoPedido extends Schema.CollectionType {
       'oneToOne',
       'api::cliente.cliente'
     >;
+    status: Attribute.Enumeration<
+      ['pago', 'aguardando pagamento', 'finalizado']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
