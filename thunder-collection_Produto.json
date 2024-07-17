@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Produto",
     "collectionId": "257a62f3-ff57-4a6c-a8c6-449f1d43c8ad",
-    "dateExported": "2024-06-16T16:03:22.155Z",
+    "dateExported": "2024-07-17T12:40:14.860Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -11,18 +11,59 @@
             "colId": "257a62f3-ff57-4a6c-a8c6-449f1d43c8ad",
             "containerId": "",
             "name": "get",
-            "url": "http://localhost:1337/api/produtos",
+            "url": "http://localhost:1337/api/produtos/",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-06-16T14:33:49.251Z",
-            "modified": "2024-06-16T14:35:04.286Z",
+            "modified": "2024-07-12T13:50:33.773Z",
+            "headers": []
+        },
+        {
+            "_id": "cdd9916c-1c9d-4a3d-8cc6-35068b989960",
+            "colId": "257a62f3-ff57-4a6c-a8c6-449f1d43c8ad",
+            "containerId": "",
+            "name": "post",
+            "url": "http://localhost:1337/api/produtos/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-12T13:46:24.474Z",
+            "modified": "2024-07-12T15:00:33.011Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"data\":{\n    \"Nome\": \"jaqueta infantil\",\n    \"Preco\": 59.9,\n    \"Qtd_estoque\": 4,\n    \"Categoria\": \"vestuario\",\n    \"Cod_prod\": 3\n  }\n}",
+                "raw": "{\n  \"data\":{\n    \"Nome\": \"saia \",\n    \"Preco\": 159.9,\n    \"Qtd_estoque\": 4,\n    \"Descricao\": \"preta adulta\"\n  }\n}",
                 "form": []
             }
+        },
+        {
+            "_id": "e3667585-8cae-4c95-ac5b-d890c36e338e",
+            "colId": "257a62f3-ff57-4a6c-a8c6-449f1d43c8ad",
+            "containerId": "",
+            "name": "put",
+            "url": "http://localhost:1337/api/produtos/3",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-07-12T13:48:30.904Z",
+            "modified": "2024-07-17T12:35:51.527Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"data\":{\n    \"Nome\": \"calça\",\n    \"Preco\": 119.9,\n    \"Qtd_estoque\": 10,\n    \"Descricao\": \"masculina azul\"\n  }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "a6def51e-6d30-4dd2-873c-143d06eecf3c",
+            "colId": "257a62f3-ff57-4a6c-a8c6-449f1d43c8ad",
+            "containerId": "",
+            "name": "delete",
+            "url": "http://localhost:1337/api/produtos/6",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-07-12T15:01:11.825Z",
+            "modified": "2024-07-17T12:36:14.238Z",
+            "headers": []
         }
     ],
-    "ref": "N0xBtR_TneWU1vjXKo-7fg99aifqdAuOF8Q3wPhALDYAejXLq5fz8yVUkcwq0Cjq0UpyGXcFZ4LfWMStfjZLmQ"
+    "ref": "N0xBtR_TneWU1vjXKo-7fqH6nVKynJ597M6Gbteo1bmU6LBGBSwSn5QlmmiIfkGvT1Nzlspa4IjEip-LPUVzyw"
 }

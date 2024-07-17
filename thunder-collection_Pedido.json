@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Pedido",
     "collectionId": "8465021f-090f-4361-a3ff-49360ade168a",
-    "dateExported": "2024-06-16T16:03:17.931Z",
+    "dateExported": "2024-07-17T12:40:08.452Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -11,13 +11,42 @@
             "colId": "8465021f-090f-4361-a3ff-49360ade168a",
             "containerId": "",
             "name": "get",
-            "url": "http://localhost:1337/api/pedidos",
+            "url": "localhost:1337/api/pedidos",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-06-16T14:31:53.233Z",
-            "modified": "2024-06-16T14:32:11.692Z",
+            "modified": "2024-07-16T23:59:21.188Z",
+            "headers": []
+        },
+        {
+            "_id": "b816a78c-b4a6-48ca-b0f0-b5e3390505ba",
+            "colId": "8465021f-090f-4361-a3ff-49360ade168a",
+            "containerId": "",
+            "name": "post",
+            "url": "localhost:1337/api/pedidos",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-29T17:32:07.975Z",
+            "modified": "2024-07-17T12:37:20.260Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"data\": {\n    \"data_ped\": \"2024-07-16\",\n    \"produtos\": [ 1, 2 ],  \n    \"cliente\": 3,          \n    \"status\": \"aguardando pagamento\"\n  }\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "4b4eb829-2e0b-4eff-b95b-e37ce725fb12",
+            "colId": "8465021f-090f-4361-a3ff-49360ade168a",
+            "containerId": "",
+            "name": "delete",
+            "url": "localhost:1337/api/pedidos/15",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-07-17T12:25:07.314Z",
+            "modified": "2024-07-17T12:29:45.389Z",
             "headers": []
         }
     ],
-    "ref": "URyMm8HQkPx8DKQs-aGHAJ09CgU8tasn1gqzQblFjFBSVdZS7pW_C5kpAOQ7ysVPrXGWNW5kqr2ABQyDuXGVmg"
+    "ref": "URyMm8HQkPx8DKQs-aGHAORjjj9D790qPq7vqxytIUzUaCmtwLfj8RKcbrWweMVLB6Hol_WS7FK4TsDheTCtzw"
 }

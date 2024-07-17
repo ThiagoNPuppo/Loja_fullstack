@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Cliente",
     "collectionId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
-    "dateExported": "2024-06-16T16:03:01.859Z",
+    "dateExported": "2024-07-17T12:39:33.581Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -11,11 +11,11 @@
             "colId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
             "containerId": "",
             "name": "get",
-            "url": "http://localhost:1337/api/clientes",
+            "url": "localhost:1337/api/clientes",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-04-28T14:15:40.767Z",
-            "modified": "2024-06-16T14:48:46.900Z",
+            "modified": "2024-06-29T17:30:55.289Z",
             "headers": []
         },
         {
@@ -27,11 +27,11 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-06-16T14:43:31.251Z",
-            "modified": "2024-06-16T14:51:40.215Z",
+            "modified": "2024-07-12T00:16:23.582Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"data\":{\n    \"Nome\": \"deletar\",\n    \"Email\": \"alice@gmail.com\",\n    \"Telefone\": \"5199999999\",\n    \"Endereco\": \"Rua Jamelão 75\",\n    \"Cpf\": \"020202020\",\n    \"Cod_cli\": \"28\"\n    }\n}",
+                "raw": "{\n  \"data\":{\n    \"Nome\": \"deletar222\",\n    \"Email\": \"alicepupp2o@gmail.com\",\n    \"Telefone\": \"519999922299922\",\n    \"Endereco\": \"Rua Jamelão 75\",\n    \"Cpf\": \"02020202000\"\n   }\n}",
                 "form": []
             }
         },
@@ -40,11 +40,11 @@
             "colId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
             "containerId": "",
             "name": "delete",
-            "url": "http://localhost:1337/api/clientes/7",
+            "url": "http://localhost:1337/api/clientes/123",
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2024-06-16T14:51:12.944Z",
-            "modified": "2024-06-16T14:52:34.956Z",
+            "modified": "2024-06-29T21:05:50.718Z",
             "headers": []
         },
         {
@@ -52,18 +52,18 @@
             "colId": "a1e7e63f-1121-4789-b5bd-d5930869e941",
             "containerId": "",
             "name": "put",
-            "url": "http://localhost:1337/api/clientes/8",
+            "url": "http://localhost:1337/api/clientes/10",
             "method": "PUT",
             "sortNum": 50000,
             "created": "2024-06-16T14:53:00.459Z",
-            "modified": "2024-06-16T14:53:57.809Z",
+            "modified": "2024-06-29T21:07:03.602Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"data\":{\n    \"Nome\": \"deletar.fel\",\n    \"Email\": \"alice.puppo@gmail.com\",\n    \"Telefone\": \"5199999988\",\n    \"Endereco\": \"Rua Jamelão 75\",\n    \"Cpf\": \"020202020\",\n    \"Cod_cli\": \"28\"\n    }\n}",
+                "raw": "{\n  \"data\":{\n    \"Nome\": \"deletarrrrr.fel\",\n    \"Email\": \"alice.puppo@gmail.com\",\n    \"Telefone\": \"5199999988\",\n    \"Endereco\": \"Rua Jamelão 75\",\n    \"Cpf\": \"020202020\",\n    \"Cod_cli\": \"28\"\n    }\n}",
                 "form": []
             }
         }
     ],
-    "ref": "U2ugAJRu7ld3wgkFNz7PetJYTQzl_nqpBTF2u0kwed3VWgWP7540CLtslCbKHx0iU2N71OLEqNV2nGcnHgSYIQ"
+    "ref": "U2ugAJRu7ld3wgkFNz7PenTMdCi0WDGq3WjEytlVwfpveDbE4BHGN1faefAr6s4XVNyrYR7hVEk6fkzhYM--Uw"
 }
