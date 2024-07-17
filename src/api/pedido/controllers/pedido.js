@@ -38,13 +38,7 @@
 //     return { data, mapearPedido };
 //   }
 // }));
-
-
 'use strict';
-
-/**
- * pedido controller
- */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
@@ -52,86 +46,67 @@ module.exports = createCoreController('api::pedido.pedido', ({ strapi }) => ({
   // Função para criar um novo pedido
   async create(ctx) {
     const { data } = ctx.request.body;
-    const { produtos, cliente, data_ped, status } = data;
+    const { produtos, cliente } = data;
 
-    // Verificar se o cliente existe
-    const clienteExiste = await strapi.entityService.findOne('api::cliente.cliente', cliente);
-    if (!clienteExiste) {
-      return ctx.badRequest('Cliente não existe.');
-    }
-
-    // Calcular o total do pedido
-    let total = 0;
+    // Calcula o valor total do pedido
+    let valorTotal = 0;
     for (const produtoId of produtos) {
       const produto = await strapi.entityService.findOne('api::produto.produto', produtoId);
-      if (!produto) {
-        return ctx.badRequest(`Produto com ID ${produtoId} não existe.`);
+      if (produto) {
+        valorTotal += produto.Preco;
       }
-      total += produto.Preco;
     }
 
-    // Adicionar o total calculado aos dados do pedido
-    data.valor = total;
+    // Atualiza o campo 'valor' com o valor total calculado
+    data.valor = valorTotal;
 
-    // Definir o status inicial, se não fornecido
-    if (!status) {
-      data.status = 'aguardando pagamento';
-    }
-
-    // Criar o pedido
+    // Chama a função de criação padrão do Strapi
     const response = await super.create(ctx);
+
+    // Atualiza o estoque dos produtos
+    for (const produtoId of produtos) {
+      const produto = await strapi.entityService.findOne('api::produto.produto', produtoId);
+      if (produto) {
+        await strapi.entityService.update('api::produto.produto', produtoId, {
+          data: {
+            Qtd_estoque: produto.Qtd_estoque - 1,
+          },
+        });
+      }
+    }
 
     return response;
   },
 
-  // Função para obter todos os registros de pedidos
+  // Função para obter todos os pedidos
   async find(ctx) {
-    const entities = await strapi.entityService.findMany('api::pedido.pedido', {
-      populate: ['produtos', 'cliente'],
-    });
+    const { data, meta } = await super.find(ctx);
 
-    // Sanitizar os dados para retornar apenas os campos desejados e incluir os nomes dos produtos e do cliente
-    const sanitizedData = entities.map((entity) => {
-      const produtosNomes = entity.produtos.map(produto => produto.Nome);
-      const clienteNome = entity.cliente ? entity.cliente.Nome : 'Cliente não encontrado';
+    const pedidos = await Promise.all(data.map(async pedido => {
+      let produtos = [];
+      if (pedido.attributes.produtos && pedido.attributes.produtos.data) {
+        produtos = await Promise.all(pedido.attributes.produtos.data.map(async produto => {
+          const produtoEntity = await strapi.entityService.findOne('api::produto.produto', produto.id);
+          return produtoEntity ? produtoEntity.Nome : null;
+        }));
+      }
+
+      let comprador = 'Cliente desconhecido';
+      if (pedido.attributes.cliente && pedido.attributes.cliente.data) {
+        const clienteEntity = await strapi.entityService.findOne('api::cliente.cliente', pedido.attributes.cliente.data.id);
+        comprador = clienteEntity ? clienteEntity.Nome : 'Cliente desconhecido';
+      }
 
       return {
-        id: entity.id,
-        data_ped: entity.data_ped,
-        valor: entity.valor,
-        status: entity.status,
-        produtos: produtosNomes,
-        cliente: clienteNome,
+        id: pedido.id,
+        data_ped: pedido.attributes.data_ped,
+        valor: pedido.attributes.valor,
+        status: pedido.attributes.status,
+        comprador,
+        produtos: produtos.filter(Boolean), // Remove produtos null
       };
-    });
+    }));
 
-    return { data: sanitizedData };
-  },
-
-  // Função para obter um registro específico de pedido
-  async findOne(ctx) {
-    const { id } = ctx.params;
-    const entity = await strapi.entityService.findOne('api::pedido.pedido', id, {
-      populate: ['produtos', 'cliente'],
-    });
-
-    if (!entity) {
-      return ctx.notFound();
-    }
-
-    // Sanitizar a entidade para retornar apenas os campos desejados e incluir os nomes dos produtos e do cliente
-    const produtosNomes = entity.produtos.map(produto => produto.Nome);
-    const clienteNome = entity.cliente ? entity.cliente.Nome : 'Cliente não encontrado';
-
-    const sanitizedEntity = {
-      id: entity.id,
-      data_ped: entity.data_ped,
-      valor: entity.valor,
-      status: entity.status,
-      produtos: produtosNomes,
-      cliente: clienteNome,
-    };
-
-    return this.transformResponse(sanitizedEntity);
+    return { data: pedidos, meta };
   },
 }));
