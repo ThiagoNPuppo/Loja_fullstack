@@ -18,18 +18,6 @@
     "valor": {
       "type": "decimal"
     },
-    "produtos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::produto.produto",
-      "mappedBy": "pedido"
-    },
-    "cliente": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::cliente.cliente",
-      "inversedBy": "pedidos"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
@@ -37,6 +25,18 @@
         "aguardando pagamento",
         "finalizado"
       ]
+    },
+    "produtos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::produto.produto",
+      "mappedBy": "pedidos"
+    },
+    "cliente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cliente.cliente",
+      "inversedBy": "pedidos"
     }
   }
 }

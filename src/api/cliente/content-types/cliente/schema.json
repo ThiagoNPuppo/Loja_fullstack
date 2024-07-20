@@ -12,29 +12,29 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nome": {
+    "nome": {
       "type": "string",
       "required": true
     },
-    "Email": {
+    "email": {
       "type": "email"
     },
-    "Telefone": {
+    "telefone": {
       "type": "biginteger",
       "required": true
     },
-    "Endereco": {
+    "endereco": {
       "type": "string",
       "required": true
     },
-    "Cpf": {
+    "cpf": {
       "type": "biginteger",
       "required": true,
       "unique": true
     },
     "pedidos": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::pedido.pedido",
       "mappedBy": "cliente"
     }

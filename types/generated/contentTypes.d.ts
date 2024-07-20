@@ -800,14 +800,14 @@ export interface ApiClienteCliente extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Nome: Attribute.String & Attribute.Required;
-    Email: Attribute.Email;
-    Telefone: Attribute.BigInteger & Attribute.Required;
-    Endereco: Attribute.String & Attribute.Required;
-    Cpf: Attribute.BigInteger & Attribute.Required & Attribute.Unique;
+    nome: Attribute.String & Attribute.Required;
+    email: Attribute.Email;
+    telefone: Attribute.BigInteger & Attribute.Required;
+    endereco: Attribute.String & Attribute.Required;
+    cpf: Attribute.BigInteger & Attribute.Required & Attribute.Unique;
     pedidos: Attribute.Relation<
       'api::cliente.cliente',
-      'oneToOne',
+      'oneToMany',
       'api::pedido.pedido'
     >;
     createdAt: Attribute.DateTime;
@@ -842,18 +842,18 @@ export interface ApiPedidoPedido extends Schema.CollectionType {
   attributes: {
     data_ped: Attribute.Date;
     valor: Attribute.Decimal;
+    status: Attribute.Enumeration<
+      ['pago', 'aguardando pagamento', 'finalizado']
+    >;
     produtos: Attribute.Relation<
       'api::pedido.pedido',
-      'oneToMany',
+      'manyToMany',
       'api::produto.produto'
     >;
     cliente: Attribute.Relation<
       'api::pedido.pedido',
-      'oneToOne',
+      'manyToOne',
       'api::cliente.cliente'
-    >;
-    status: Attribute.Enumeration<
-      ['pago', 'aguardando pagamento', 'finalizado']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -885,15 +885,16 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Nome: Attribute.String & Attribute.Required;
-    Preco: Attribute.Decimal & Attribute.Required;
-    Qtd_estoque: Attribute.Integer;
-    Descricao: Attribute.String;
-    pedido: Attribute.Relation<
+    nome: Attribute.String & Attribute.Required;
+    preco: Attribute.Decimal & Attribute.Required;
+    qtd_estoque: Attribute.Integer;
+    descricao: Attribute.String;
+    pedidos: Attribute.Relation<
       'api::produto.produto',
-      'manyToOne',
+      'manyToMany',
       'api::pedido.pedido'
     >;
+    imagem: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

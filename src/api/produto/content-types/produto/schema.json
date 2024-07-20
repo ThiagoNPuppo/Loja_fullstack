@@ -12,25 +12,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nome": {
+    "nome": {
       "type": "string",
       "required": true
     },
-    "Preco": {
+    "preco": {
       "type": "decimal",
       "required": true
     },
-    "Qtd_estoque": {
+    "qtd_estoque": {
       "type": "integer"
     },
-    "Descricao": {
+    "descricao": {
       "type": "string"
     },
-    "pedido": {
+    "pedidos": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::pedido.pedido",
       "inversedBy": "produtos"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }
